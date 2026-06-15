@@ -1,0 +1,326 @@
+[
+  {
+    "name": "Goodhood",
+    "city": "Jeddah",
+    "latitude": 21.551299999999998,
+    "longitude": 39.1728,
+    "source": "fallback",
+    "confidence": "low",
+    "displayName": "Goodhood (approximate city center)"
+  },
+  {
+    "name": "1/15 Neighborhood café",
+    "city": "Jeddah",
+    "latitude": 21.5553745,
+    "longitude": 39.2330792,
+    "source": "nominatim",
+    "confidence": "high",
+    "displayName": "1/15 Neighborhood Cafe, طريق الحرمين, الرحاب, جدة, محافظة جدة, منطقة مكة المكرمة, 23343, السعودية"
+  },
+  {
+    "name": "Urth",
+    "city": "Jeddah",
+    "latitude": 21.6483406,
+    "longitude": 39.1121231,
+    "source": "nominatim",
+    "confidence": "high",
+    "displayName": "Urth Caffe, شارع التحلية, المحمدية, جدة, محافظة جدة, منطقة مكة المكرمة, 23514, السعودية"
+  },
+  {
+    "name": "Starbucks",
+    "city": "Jeddah",
+    "latitude": 21.5761505,
+    "longitude": 39.150948,
+    "source": "nominatim",
+    "confidence": "high",
+    "displayName": "Starbucks, طريق صاري, الروضة, جدة, محافظة جدة, منطقة مكة المكرمة, 23436, السعودية"
+  },
+  {
+    "name": "Cup and Couch",
+    "city": "Jeddah",
+    "latitude": 21.527543075951804,
+    "longitude": 39.17002162915733,
+    "source": "fallback",
+    "confidence": "low",
+    "displayName": "Cup and Couch (approximate city center)"
+  },
+  {
+    "name": "Hoot coffee house",
+    "city": "Jeddah",
+    "latitude": 21.5500471315665,
+    "longitude": 39.16850160313323,
+    "source": "fallback",
+    "confidence": "low",
+    "displayName": "Hoot coffee house (approximate city center)"
+  },
+  {
+    "name": "Tim Hortons",
+    "city": "Jeddah",
+    "latitude": 21.6104551,
+    "longitude": 39.1557883,
+    "source": "nominatim",
+    "confidence": "high",
+    "displayName": "تيم هورتونز, طريق المدينة, السلامة, جدة, محافظة جدة, منطقة مكة المكرمة, 23524, السعودية"
+  },
+  {
+    "name": "Kim's coffee",
+    "city": "Jeddah",
+    "latitude": 21.53775901664118,
+    "longitude": 39.16215587000186,
+    "source": "fallback",
+    "confidence": "low",
+    "displayName": "Kim's coffee (approximate city center)"
+  },
+  {
+    "name": "Brew 92",
+    "city": "Jeddah",
+    "latitude": 21.5732382,
+    "longitude": 39.1436292,
+    "source": "nominatim",
+    "confidence": "high",
+    "displayName": "Brew 92, طريق الأمير سلطان, الروضة, جدة, محافظة جدة, منطقة مكة المكرمة, 23423, السعودية"
+  },
+  {
+    "name": "Basic",
+    "city": "Jeddah",
+    "latitude": 21.5781005,
+    "longitude": 39.1560339,
+    "source": "nominatim",
+    "confidence": "high",
+    "displayName": "Gree Basic, طريق صاري, الروضة, جدة, محافظة جدة, منطقة مكة المكرمة, 23436, السعودية"
+  },
+  {
+    "name": "1/2 M",
+    "city": "Jeddah",
+    "latitude": 21.5504432,
+    "longitude": 39.1742363,
+    "source": "nominatim",
+    "confidence": "high",
+    "displayName": "جدة, محافظة جدة, منطقة مكة المكرمة, 23124, السعودية"
+  },
+  {
+    "name": "Starbucks Reserve",
+    "city": "Jeddah",
+    "latitude": 21.54630705799504,
+    "longitude": 39.182337169507484,
+    "source": "fallback",
+    "confidence": "low",
+    "displayName": "Starbucks Reserve (approximate city center)"
+  },
+  {
+    "name": "Boho",
+    "city": "Jeddah",
+    "latitude": 21.532907695154584,
+    "longitude": 39.1668,
+    "source": "fallback",
+    "confidence": "low",
+    "displayName": "Boho (approximate city center)"
+  },
+  {
+    "name": "Gathering",
+    "city": "Jeddah",
+    "latitude": 21.5682368,
+    "longitude": 39.160842,
+    "source": "nominatim",
+    "confidence": "high",
+    "displayName": "Gathering, شارع الكيال, الروضة, جدة, محافظة جدة, منطقة مكة المكرمة, 21424, السعودية"
+  },
+  {
+    "name": "Aitch",
+    "city": "Jeddah",
+    "latitude": 21.534122777018382,
+    "longitude": 39.18590643270863,
+    "source": "fallback",
+    "confidence": "low",
+    "displayName": "Aitch (approximate city center)"
+  },
+  {
+    "name": "Las",
+    "city": "Riyadh",
+    "latitude": 24.5966869,
+    "longitude": 46.8715167,
+    "source": "nominatim",
+    "confidence": "high",
+    "displayName": "لاعس, حي المشاعل, بلدية السلي, محافظة الرياض, منطقة الرياض, 14327, السعودية"
+  },
+  {
+    "name": "Alchemy",
+    "city": "Riyadh",
+    "latitude": 24.721260444431188,
+    "longitude": 46.681727876096865,
+    "source": "fallback",
+    "confidence": "low",
+    "displayName": "Alchemy (approximate city center)"
+  },
+  {
+    "name": "95 Celcius",
+    "city": "Jeddah",
+    "latitude": 21.531311421341016,
+    "longitude": 39.17332343264839,
+    "source": "fallback",
+    "confidence": "low",
+    "displayName": "95 Celcius (approximate city center)"
+  },
+  {
+    "name": "Camel Step",
+    "city": "Jeddah",
+    "latitude": 21.55319949493661,
+    "longitude": 39.16290050506339,
+    "source": "fallback",
+    "confidence": "low",
+    "displayName": "Camel Step (approximate city center)"
+  },
+  {
+    "name": "Raksha",
+    "city": "Jeddah",
+    "latitude": 21.542602089802152,
+    "longitude": 39.188784771545315,
+    "source": "fallback",
+    "confidence": "low",
+    "displayName": "Raksha (approximate city center)"
+  },
+  {
+    "name": "Will",
+    "city": "Jeddah",
+    "latitude": 21.5684109,
+    "longitude": 39.1613989,
+    "source": "nominatim",
+    "confidence": "high",
+    "displayName": "Will, شارع الكيال, الروضة, جدة, محافظة جدة, منطقة مكة المكرمة, 21424, السعودية"
+  },
+  {
+    "name": "Meraki Artisan",
+    "city": "Jeddah",
+    "latitude": 21.553214448613737,
+    "longitude": 39.1741052619222,
+    "source": "fallback",
+    "confidence": "low",
+    "displayName": "Meraki Artisan (approximate city center)"
+  },
+  {
+    "name": "Kiora",
+    "city": "Jeddah",
+    "latitude": 21.53347017546853,
+    "longitude": 39.179682917236214,
+    "source": "fallback",
+    "confidence": "low",
+    "displayName": "Kiora (approximate city center)"
+  },
+  {
+    "name": "Medd",
+    "city": "Jeddah",
+    "latitude": 21.546330154595132,
+    "longitude": 39.15913185590032,
+    "source": "fallback",
+    "confidence": "low",
+    "displayName": "Medd (approximate city center)"
+  },
+  {
+    "name": "J blends",
+    "city": "Jeddah",
+    "latitude": 21.551299999999998,
+    "longitude": 39.18665640646055,
+    "source": "fallback",
+    "confidence": "low",
+    "displayName": "J blends (approximate city center)"
+  },
+  {
+    "name": "Mellow",
+    "city": "Jeddah",
+    "latitude": 21.535670264394014,
+    "longitude": 39.17039435360397,
+    "source": "fallback",
+    "confidence": "low",
+    "displayName": "Mellow (approximate city center)"
+  },
+  {
+    "name": "Red Mug",
+    "city": "Jeddah",
+    "latitude": 21.5598001,
+    "longitude": 39.1530121,
+    "source": "nominatim",
+    "confidence": "high",
+    "displayName": "ريد مق كافيه, Abdullah Al Kareeje, الروضة, جدة, محافظة جدة, منطقة مكة المكرمة, 21421, السعودية"
+  },
+  {
+    "name": "Bakery Bar",
+    "city": "Jeddah",
+    "latitude": 21.53870779881162,
+    "longitude": 39.183886554390135,
+    "source": "fallback",
+    "confidence": "low",
+    "displayName": "Bakery Bar (approximate city center)"
+  },
+  {
+    "name": "Together",
+    "city": "Jeddah",
+    "latitude": 21.53851171799344,
+    "longitude": 39.159644303309,
+    "source": "fallback",
+    "confidence": "low",
+    "displayName": "Together (approximate city center)"
+  },
+  {
+    "name": "966",
+    "city": "Jeddah",
+    "latitude": 21.5504432,
+    "longitude": 39.1742363,
+    "source": "nominatim",
+    "confidence": "high",
+    "displayName": "جدة, محافظة جدة, منطقة مكة المكرمة, 23124, السعودية"
+  },
+  {
+    "name": "جوار",
+    "city": "Jeddah",
+    "latitude": 21.535572593389688,
+    "longitude": 39.17487055236082,
+    "source": "fallback",
+    "confidence": "low",
+    "displayName": "جوار (approximate city center)"
+  },
+  {
+    "name": "Goodhood 2",
+    "city": "Jeddah",
+    "latitude": 21.548672996083468,
+    "longitude": 39.16436608554187,
+    "source": "fallback",
+    "confidence": "low",
+    "displayName": "Goodhood 2 (approximate city center)"
+  },
+  {
+    "name": "Chestnut Bakery",
+    "city": "Riyadh",
+    "latitude": 24.715683778132004,
+    "longitude": 46.68711769303615,
+    "source": "fallback",
+    "confidence": "low",
+    "displayName": "Chestnut Bakery (approximate city center)"
+  },
+  {
+    "name": "Utopia",
+    "city": "Jeddah",
+    "latitude": 21.532193053235922,
+    "longitude": 39.16427733999388,
+    "source": "fallback",
+    "confidence": "low",
+    "displayName": "Utopia (approximate city center)"
+  },
+  {
+    "name": "Ash",
+    "city": "Jeddah",
+    "latitude": 21.4908562,
+    "longitude": 39.1255871,
+    "source": "nominatim",
+    "confidence": "high",
+    "displayName": "شعب أمّ الخلخلة, جدة, 23212, السعودية"
+  },
+  {
+    "name": "m Bakery",
+    "city": "Jeddah",
+    "latitude": 21.6214737,
+    "longitude": 39.1509482,
+    "source": "nominatim",
+    "confidence": "high",
+    "displayName": "معمولتي اللذيذة | فرع النعيم, 23, النعيم, جدة, محافظة جدة, منطقة مكة المكرمة, 23622, السعودية"
+  }
+]
