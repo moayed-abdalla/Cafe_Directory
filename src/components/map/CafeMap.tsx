@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import Map, { Marker, NavigationControl, Popup, type MapRef } from "react-map-gl/maplibre";
+import Map, { Marker, Popup, type MapRef } from "react-map-gl/maplibre";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import gsap from "gsap";
@@ -10,6 +10,7 @@ import type { Cafe } from "@/lib/types/cafe";
 import { useSite } from "@/components/providers/SiteProvider";
 import { ScoreMarker } from "./ScoreMarker";
 import { CafePopup } from "./CafePopup";
+import { MapZoomControls } from "./MapZoomControls";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -87,9 +88,9 @@ export function CafeMap({ cafes }: CafeMapProps) {
           style={{ width: "100%", height: "100%" }}
           mapStyle={MAP_STYLE}
           attributionControl={false}
+          scrollZoom={false}
+          doubleClickZoom={false}
         >
-          <NavigationControl position="top-right" showCompass={false} />
-
           {mappableCafes.map((cafe, i) => (
             <Marker
               key={cafe.id}
@@ -124,6 +125,8 @@ export function CafeMap({ cafes }: CafeMapProps) {
           )}
         </Map>
       </div>
+
+      <MapZoomControls mapRef={mapRef} />
 
       <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-espresso/40 to-transparent pb-8 pt-24">
         <motion.div
