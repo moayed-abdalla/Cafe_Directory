@@ -8,7 +8,13 @@ A single-page coffee review site with an interactive map, category leaderboard, 
    ```
    NEXT_PUBLIC_SUPABASE_URL=
    NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=
+   SUPABASE_SERVICE_ROLE_KEY=
+   ADMIN_USERNAME=
+   ADMIN_PASSWORD=
+   ADMIN_SESSION_SECRET=
    ```
+   `SUPABASE_SERVICE_ROLE_KEY` is from Supabase Dashboard → Settings → API (server-only; never commit).
+   Admin credentials are for the hidden `/login` page (not linked from the public site).
 
 2. Install dependencies:
    ```bash
@@ -29,6 +35,8 @@ A single-page coffee review site with an interactive map, category leaderboard, 
 ## Updating data
 
 Edit `KSA Cafe Directory.xlsx`, then run `npm run seed` again.
+
+Or sign in at `/login` (direct URL only) to edit cafés, Yet to Try, and category picks in the admin dashboard.
 
 ## Stack
 
