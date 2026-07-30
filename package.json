@@ -7,12 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "seed": "tsx scripts/generate-seed-sql.ts && tsx scripts/seed-via-publishable.ts",
-    "seed:sql": "tsx scripts/generate-seed-sql.ts"
+    "seed": "tsx scripts/generate-data-json.ts"
   },
   "dependencies": {
-    "@supabase/ssr": "^0.6.1",
-    "@supabase/supabase-js": "^2.49.8",
     "clsx": "^2.1.1",
     "framer-motion": "^12.12.1",
     "gsap": "^3.13.0",

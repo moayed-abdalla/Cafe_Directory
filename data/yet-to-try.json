@@ -1,0 +1,92 @@
+[
+  {
+    "id": "ytt-0",
+    "name": "Namq",
+    "city": "Jeddah",
+    "sort_order": 0
+  },
+  {
+    "id": "ytt-1",
+    "name": "Daily Edition",
+    "city": "Jeddah",
+    "sort_order": 1
+  },
+  {
+    "id": "ytt-2",
+    "name": "Pals",
+    "city": "Jeddah",
+    "sort_order": 2
+  },
+  {
+    "id": "ytt-3",
+    "name": "Alert",
+    "city": "Jeddah",
+    "sort_order": 3
+  },
+  {
+    "id": "ytt-4",
+    "name": "Hemi",
+    "city": "Jeddah",
+    "sort_order": 4
+  },
+  {
+    "id": "ytt-5",
+    "name": "Kiffa",
+    "city": "Jeddah",
+    "sort_order": 5
+  },
+  {
+    "id": "ytt-6",
+    "name": "Sort",
+    "city": "Jeddah",
+    "sort_order": 6
+  },
+  {
+    "id": "ytt-7",
+    "name": "Muta's",
+    "city": "Jeddah",
+    "sort_order": 7
+  },
+  {
+    "id": "ytt-8",
+    "name": "Urban",
+    "city": "Jeddah",
+    "sort_order": 8
+  },
+  {
+    "id": "ytt-9",
+    "name": "Monde",
+    "city": "Jeddah",
+    "sort_order": 9
+  },
+  {
+    "id": "ytt-10",
+    "name": "Atlas",
+    "city": "Jeddah",
+    "sort_order": 10
+  },
+  {
+    "id": "ytt-11",
+    "name": "Hawand",
+    "city": "Jeddah",
+    "sort_order": 11
+  },
+  {
+    "id": "ytt-12",
+    "name": "Blue apron",
+    "city": "Jeddah",
+    "sort_order": 12
+  },
+  {
+    "id": "ytt-13",
+    "name": "Thuluth",
+    "city": "Jeddah",
+    "sort_order": 13
+  },
+  {
+    "id": "ytt-14",
+    "name": "Paulina Bakery",
+    "city": "Jeddah",
+    "sort_order": 14
+  }
+]

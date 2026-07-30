@@ -1,7 +1,6 @@
 import { redirect } from "next/navigation";
 import { isAdminAuthenticated } from "@/lib/auth/admin-session";
 import { getAdminData } from "@/lib/admin-data";
-import { checkAdminWriteAccess } from "@/lib/supabase/admin";
 import { AdminDashboard } from "@/components/admin/AdminDashboard";
 
 export const metadata = {
@@ -14,17 +13,13 @@ export default async function AdminPage() {
     redirect("/login");
   }
 
-  const [{ cafes, categoryPicks, yetToTry }, writeError] = await Promise.all([
-    getAdminData(),
-    checkAdminWriteAccess(),
-  ]);
+  const { cafes, categoryPicks, yetToTry } = await getAdminData();
 
   return (
     <AdminDashboard
       cafes={cafes}
       categoryPicks={categoryPicks}
       yetToTry={yetToTry}
-      writeError={writeError}
     />
   );
 }

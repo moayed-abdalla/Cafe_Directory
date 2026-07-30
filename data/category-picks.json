@@ -1,0 +1,128 @@
+[
+  {
+    "id": "overall-1",
+    "category": "overall",
+    "rank": 1,
+    "cafe_name": "Chestnut Bakery",
+    "city": null
+  },
+  {
+    "id": "coffee-1",
+    "category": "coffee",
+    "rank": 1,
+    "cafe_name": "Cup and Couch",
+    "city": null
+  },
+  {
+    "id": "desserts-1",
+    "category": "desserts",
+    "rank": 1,
+    "cafe_name": "Chestnut Bakery",
+    "city": null
+  },
+  {
+    "id": "social-1",
+    "category": "social",
+    "rank": 1,
+    "cafe_name": "Gathering",
+    "city": null
+  },
+  {
+    "id": "work-1",
+    "category": "work",
+    "rank": 1,
+    "cafe_name": "جوار",
+    "city": null
+  },
+  {
+    "id": "value-1",
+    "category": "value",
+    "rank": 1,
+    "cafe_name": "Mellow",
+    "city": null
+  },
+  {
+    "id": "overall-2",
+    "category": "overall",
+    "rank": 2,
+    "cafe_name": "Meraki Artisan",
+    "city": null
+  },
+  {
+    "id": "coffee-2",
+    "category": "coffee",
+    "rank": 2,
+    "cafe_name": "Meraki Artisian",
+    "city": null
+  },
+  {
+    "id": "desserts-2",
+    "category": "desserts",
+    "rank": 2,
+    "cafe_name": "Meraki Artisian",
+    "city": null
+  },
+  {
+    "id": "social-2",
+    "category": "social",
+    "rank": 2,
+    "cafe_name": "m Bakery",
+    "city": null
+  },
+  {
+    "id": "work-2",
+    "category": "work",
+    "rank": 2,
+    "cafe_name": "Brew 92",
+    "city": null
+  },
+  {
+    "id": "value-2",
+    "category": "value",
+    "rank": 2,
+    "cafe_name": "1/2 M",
+    "city": null
+  },
+  {
+    "id": "overall-3",
+    "category": "overall",
+    "rank": 3,
+    "cafe_name": "جوار",
+    "city": "Jeddah"
+  },
+  {
+    "id": "coffee-3",
+    "category": "coffee",
+    "rank": 3,
+    "cafe_name": "Ash",
+    "city": "Jeddah"
+  },
+  {
+    "id": "desserts-3",
+    "category": "desserts",
+    "rank": 3,
+    "cafe_name": "m Bakery",
+    "city": "Jeddah"
+  },
+  {
+    "id": "social-3",
+    "category": "social",
+    "rank": 3,
+    "cafe_name": "Chestnut Bakery",
+    "city": "Jeddah"
+  },
+  {
+    "id": "work-3",
+    "category": "work",
+    "rank": 3,
+    "cafe_name": "Basic",
+    "city": "Jeddah"
+  },
+  {
+    "id": "value-3",
+    "category": "value",
+    "rank": 3,
+    "cafe_name": "Cup and Couch",
+    "city": "Jeddah"
+  }
+]

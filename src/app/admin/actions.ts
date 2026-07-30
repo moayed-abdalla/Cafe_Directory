@@ -2,7 +2,14 @@
 
 import { revalidatePath } from "next/cache";
 import { requireAdmin } from "@/lib/auth/admin-session";
-import { createAdminClient } from "@/lib/supabase/admin";
+import {
+  newId,
+  readCafes,
+  readYetToTry,
+  writeCafes,
+  writeCategoryPicks,
+  writeYetToTry,
+} from "@/lib/store";
 import type { CategoryKey } from "@/lib/types/cafe";
 import { slugify } from "@/lib/types/cafe";
 
@@ -114,13 +121,13 @@ export async function createCafe(raw: CafeFormInput) {
   const data = validateCafeInput(raw);
   if ("error" in data) return { error: data.error };
 
-  const supabase = createAdminClient();
-  const { error } = await supabase.from("cafes").insert({
-    ...data,
-    updated_at: new Date().toISOString(),
-  });
+  const cafes = readCafes();
+  if (cafes.some((c) => c.slug === data.slug || c.id === data.slug)) {
+    return { error: "A café with this slug already exists" };
+  }
 
-  if (error) return { error: error.message };
+  cafes.push({ id: data.slug, ...data });
+  writeCafes(cafes);
   revalidatePath("/");
   return { ok: true };
 }
@@ -130,22 +137,30 @@ export async function updateCafe(id: string, raw: CafeFormInput) {
   const data = validateCafeInput(raw);
   if ("error" in data) return { error: data.error };
 
-  const supabase = createAdminClient();
-  const { error } = await supabase
-    .from("cafes")
-    .update({ ...data, updated_at: new Date().toISOString() })
-    .eq("id", id);
+  const cafes = readCafes();
+  const index = cafes.findIndex((c) => c.id === id);
+  if (index === -1) return { error: "Café not found" };
 
-  if (error) return { error: error.message };
+  if (
+    cafes.some(
+      (c) => c.id !== id && (c.slug === data.slug || c.id === data.slug)
+    )
+  ) {
+    return { error: "A café with this slug already exists" };
+  }
+
+  cafes[index] = { id, ...data };
+  writeCafes(cafes);
   revalidatePath("/");
   return { ok: true };
 }
 
 export async function deleteCafe(id: string) {
   await requireAdmin();
-  const supabase = createAdminClient();
-  const { error } = await supabase.from("cafes").delete().eq("id", id);
-  if (error) return { error: error.message };
+  const cafes = readCafes();
+  const next = cafes.filter((c) => c.id !== id);
+  if (next.length === cafes.length) return { error: "Café not found" };
+  writeCafes(next);
   revalidatePath("/");
   return { ok: true };
 }
@@ -156,23 +171,17 @@ export async function createYetToTry(name: string, city: string) {
   const trimmedCity = city.trim() || "Jeddah";
   if (!trimmedName) return { error: "Name is required" };
 
-  const supabase = createAdminClient();
-  const { data: existing } = await supabase
-    .from("yet_to_try")
-    .select("sort_order")
-    .order("sort_order", { ascending: false })
-    .limit(1);
+  const items = readYetToTry();
+  const sort_order =
+    items.reduce((max, item) => Math.max(max, item.sort_order), -1) + 1;
 
-  const sort_order = (existing?.[0]?.sort_order ?? -1) + 1;
-
-  const { error } = await supabase.from("yet_to_try").insert({
+  items.push({
+    id: newId("ytt"),
     name: trimmedName,
     city: trimmedCity,
     sort_order,
-    updated_at: new Date().toISOString(),
   });
-
-  if (error) return { error: error.message };
+  writeYetToTry(items);
   revalidatePath("/");
   return { ok: true };
 }
@@ -183,40 +192,33 @@ export async function updateYetToTry(id: string, name: string, city: string) {
   const trimmedCity = city.trim() || "Jeddah";
   if (!trimmedName) return { error: "Name is required" };
 
-  const supabase = createAdminClient();
-  const { error } = await supabase
-    .from("yet_to_try")
-    .update({
-      name: trimmedName,
-      city: trimmedCity,
-      updated_at: new Date().toISOString(),
-    })
-    .eq("id", id);
+  const items = readYetToTry();
+  const index = items.findIndex((item) => item.id === id);
+  if (index === -1) return { error: "Item not found" };
 
-  if (error) return { error: error.message };
+  items[index] = {
+    ...items[index],
+    name: trimmedName,
+    city: trimmedCity,
+  };
+  writeYetToTry(items);
   revalidatePath("/");
   return { ok: true };
 }
 
 export async function deleteYetToTry(id: string) {
   await requireAdmin();
-  const supabase = createAdminClient();
-  const { error } = await supabase.from("yet_to_try").delete().eq("id", id);
-  if (error) return { error: error.message };
+  const items = readYetToTry();
+  const next = items.filter((item) => item.id !== id);
+  if (next.length === items.length) return { error: "Item not found" };
+  writeYetToTry(next);
   revalidatePath("/");
   return { ok: true };
 }
 
 export async function reorderYetToTry(id: string, direction: "up" | "down") {
   await requireAdmin();
-  const supabase = createAdminClient();
-
-  const { data: items, error: fetchError } = await supabase
-    .from("yet_to_try")
-    .select("id, sort_order")
-    .order("sort_order");
-
-  if (fetchError || !items) return { error: fetchError?.message ?? "Failed to load items" };
+  const items = [...readYetToTry()].sort((a, b) => a.sort_order - b.sort_order);
 
   const index = items.findIndex((item) => item.id === id);
   if (index === -1) return { error: "Item not found" };
@@ -224,19 +226,11 @@ export async function reorderYetToTry(id: string, direction: "up" | "down") {
   const swapIndex = direction === "up" ? index - 1 : index + 1;
   if (swapIndex < 0 || swapIndex >= items.length) return { ok: true };
 
-  const current = items[index];
-  const swap = items[swapIndex];
+  const currentOrder = items[index].sort_order;
+  items[index].sort_order = items[swapIndex].sort_order;
+  items[swapIndex].sort_order = currentOrder;
 
-  const { error: e1 } = await supabase
-    .from("yet_to_try")
-    .update({ sort_order: swap.sort_order })
-    .eq("id", current.id);
-  const { error: e2 } = await supabase
-    .from("yet_to_try")
-    .update({ sort_order: current.sort_order })
-    .eq("id", swap.id);
-
-  if (e1 || e2) return { error: e1?.message ?? e2?.message ?? "Reorder failed" };
+  writeYetToTry(items);
   revalidatePath("/");
   return { ok: true };
 }
@@ -263,28 +257,17 @@ export async function saveCategoryPicks(picks: CategoryPickInput[]) {
     }
   }
 
-  const supabase = createAdminClient();
-
-  await supabase
-    .from("category_picks")
-    .delete()
-    .neq("id", "00000000-0000-0000-0000-000000000000");
-
   const rows = picks
     .filter((p) => p.cafe_name.trim())
     .map((p) => ({
+      id: `${p.category}-${p.rank}`,
       category: p.category,
       rank: p.rank,
       cafe_name: p.cafe_name.trim(),
       city: p.city?.trim() || null,
-      updated_at: new Date().toISOString(),
     }));
 
-  if (rows.length > 0) {
-    const { error } = await supabase.from("category_picks").insert(rows);
-    if (error) return { error: error.message };
-  }
-
+  writeCategoryPicks(rows);
   revalidatePath("/");
   return { ok: true };
 }
