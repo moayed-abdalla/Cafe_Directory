@@ -1,6 +1,7 @@
 "use client";
 
-import { useMemo, useState, useTransition } from "react";
+import { useEffect, useMemo, useState, useTransition } from "react";
+import { useRouter } from "next/navigation";
 import { Search, Plus, Trash2, X } from "lucide-react";
 import type { Cafe } from "@/lib/types/cafe";
 import { slugify } from "@/lib/types/cafe";
@@ -32,6 +33,25 @@ const EMPTY_CAFE: CafeFormInput = {
   address: null,
   geocode_verified: false,
 };
+
+type InlineScoreKey =
+  | "average"
+  | "coffee_score"
+  | "desserts_score"
+  | "aesthetic_score"
+  | "amenities_score";
+
+type InlineCoordKey = "latitude" | "longitude";
+
+type InlineFieldKey = InlineScoreKey | InlineCoordKey;
+
+const INLINE_SCORE_COLUMNS: { key: InlineScoreKey; label: string }[] = [
+  { key: "average", label: "Avg" },
+  { key: "coffee_score", label: "Coffee" },
+  { key: "desserts_score", label: "Desserts" },
+  { key: "aesthetic_score", label: "Aesthetic" },
+  { key: "amenities_score", label: "Amenities" },
+];
 
 function cafeToForm(cafe: Cafe): CafeFormInput {
   return {
@@ -76,23 +96,42 @@ function Field({
 const inputClass =
   "w-full rounded-lg border border-cream-dark bg-white px-3 py-2 text-sm outline-none focus:border-copper";
 
+const inlineInputClass =
+  "w-[4.5rem] rounded border border-cream-dark bg-white px-1.5 py-1 text-sm tabular-nums outline-none focus:border-copper";
+
+const inlineCoordClass =
+  "w-[6.5rem] rounded border border-cream-dark bg-white px-1.5 py-1 text-sm tabular-nums outline-none focus:border-copper";
+
+function valuesEqual(a: number | null, b: number | null) {
+  if (a === null && b === null) return true;
+  if (a === null || b === null) return false;
+  return a === b;
+}
+
 export function CafeEditor({ cafes }: { cafes: Cafe[] }) {
+  const router = useRouter();
   const [search, setSearch] = useState("");
+  const [rows, setRows] = useState(cafes);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [isCreating, setIsCreating] = useState(false);
   const [form, setForm] = useState<CafeFormInput>(EMPTY_CAFE);
   const [error, setError] = useState("");
+  const [inlineError, setInlineError] = useState("");
   const [pending, startTransition] = useTransition();
+
+  useEffect(() => {
+    setRows(cafes);
+  }, [cafes]);
 
   const filtered = useMemo(() => {
     const q = search.toLowerCase();
-    return cafes.filter(
+    return rows.filter(
       (c) =>
         c.name.toLowerCase().includes(q) ||
         c.city.toLowerCase().includes(q) ||
         (c.notes?.toLowerCase().includes(q) ?? false)
     );
-  }, [cafes, search]);
+  }, [rows, search]);
 
   function openEdit(cafe: Cafe) {
     setIsCreating(false);
@@ -124,6 +163,30 @@ export function CafeEditor({ cafes }: { cafes: Cafe[] }) {
     });
   }
 
+  function updateRowField(id: string, key: InlineFieldKey, value: number | null) {
+    setRows((prev) =>
+      prev.map((cafe) => (cafe.id === id ? { ...cafe, [key]: value } : cafe))
+    );
+  }
+
+  function commitInlineField(cafe: Cafe, key: InlineFieldKey, value: number | null) {
+    const original = cafes.find((c) => c.id === cafe.id);
+    if (!original || valuesEqual(original[key], value)) return;
+
+    startTransition(async () => {
+      const result = await updateCafe(cafe.id, { ...cafeToForm(cafe), [key]: value });
+      if ("error" in result && result.error) {
+        setInlineError(result.error);
+        setRows((prev) =>
+          prev.map((row) => (row.id === cafe.id ? { ...row, [key]: original[key] } : row))
+        );
+      } else {
+        setInlineError("");
+        router.refresh();
+      }
+    });
+  }
+
   function handleSave() {
     startTransition(async () => {
       const result = isCreating
@@ -136,6 +199,7 @@ export function CafeEditor({ cafes }: { cafes: Cafe[] }) {
         setError(result.error);
       } else {
         closePanel();
+        router.refresh();
       }
     });
   }
@@ -150,6 +214,7 @@ export function CafeEditor({ cafes }: { cafes: Cafe[] }) {
         setError(result.error);
       } else {
         closePanel();
+        router.refresh();
       }
     });
   }
@@ -158,7 +223,7 @@ export function CafeEditor({ cafes }: { cafes: Cafe[] }) {
 
   return (
     <div className="flex flex-col gap-4 lg:flex-row">
-      <div className={cn("flex-1", panelOpen && "hidden lg:block")}>
+      <div className={cn("min-w-0 flex-1", panelOpen && "hidden lg:block")}>
         <div className="mb-4 flex flex-wrap items-center gap-3">
           <div className="relative min-w-[200px] flex-1">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-espresso/40" />
@@ -180,25 +245,122 @@ export function CafeEditor({ cafes }: { cafes: Cafe[] }) {
           </button>
         </div>
 
+        {inlineError && (
+          <p className="mb-3 text-sm text-red-600" role="alert">
+            {inlineError}
+          </p>
+        )}
+
         <div className="overflow-x-auto rounded-xl border border-cream-dark">
-          <table className="w-full min-w-[500px] text-left text-sm">
+          <table className="w-full min-w-[920px] text-left text-sm">
             <thead className="bg-cream-dark/60">
               <tr>
-                <th className="px-4 py-2.5 font-medium">Name</th>
-                <th className="px-4 py-2.5 font-medium">City</th>
-                <th className="px-4 py-2.5 font-medium">Avg</th>
+                <th className="px-3 py-2.5 font-medium">Name</th>
+                <th className="px-3 py-2.5 font-medium">City</th>
+                {INLINE_SCORE_COLUMNS.map(({ key, label }) => (
+                  <th key={key} className="px-2 py-2.5 font-medium">
+                    {label}
+                  </th>
+                ))}
+                <th className="px-2 py-2.5 font-medium">Lat</th>
+                <th className="px-2 py-2.5 font-medium">Long</th>
               </tr>
             </thead>
             <tbody>
               {filtered.map((cafe) => (
                 <tr
                   key={cafe.id}
-                  onClick={() => openEdit(cafe)}
-                  className="cursor-pointer border-t border-cream-dark/60 hover:bg-cream-dark/40"
+                  className="border-t border-cream-dark/60 hover:bg-cream-dark/40"
                 >
-                  <td className="px-4 py-2.5 font-medium">{cafe.name}</td>
-                  <td className="px-4 py-2.5 text-espresso/60">{cafe.city}</td>
-                  <td className="px-4 py-2.5 text-copper">{cafe.average.toFixed(1)}</td>
+                  <td className="px-3 py-2">
+                    <button
+                      type="button"
+                      onClick={() => openEdit(cafe)}
+                      className="text-left font-medium hover:text-copper"
+                    >
+                      {cafe.name}
+                    </button>
+                  </td>
+                  <td className="px-3 py-2">
+                    <button
+                      type="button"
+                      onClick={() => openEdit(cafe)}
+                      className="text-left text-espresso/60 hover:text-copper"
+                    >
+                      {cafe.city}
+                    </button>
+                  </td>
+                  {INLINE_SCORE_COLUMNS.map(({ key }) => (
+                    <td key={key} className="px-2 py-1.5">
+                      <input
+                        type="number"
+                        step="0.1"
+                        min="0"
+                        max="10"
+                        aria-label={`${cafe.name} ${key}`}
+                        className={inlineInputClass}
+                        value={cafe[key]}
+                        disabled={pending}
+                        onClick={(e) => e.stopPropagation()}
+                        onChange={(e) =>
+                          updateRowField(
+                            cafe.id,
+                            key,
+                            e.target.value === "" ? 0 : parseFloat(e.target.value) || 0
+                          )
+                        }
+                        onBlur={(e) => {
+                          const next =
+                            e.target.value === "" ? 0 : parseFloat(e.target.value) || 0;
+                          commitInlineField(cafe, key, next);
+                        }}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter") {
+                            e.currentTarget.blur();
+                          }
+                        }}
+                      />
+                    </td>
+                  ))}
+                  {(["latitude", "longitude"] as const).map((key) => (
+                    <td key={key} className="px-2 py-1.5">
+                      <input
+                        type="number"
+                        step="any"
+                        aria-label={`${cafe.name} ${key}`}
+                        className={inlineCoordClass}
+                        value={cafe[key] ?? ""}
+                        disabled={pending}
+                        onClick={(e) => e.stopPropagation()}
+                        onChange={(e) => {
+                          const raw = e.target.value;
+                          if (raw === "") {
+                            updateRowField(cafe.id, key, null);
+                            return;
+                          }
+                          const next = parseFloat(raw);
+                          if (!Number.isNaN(next)) {
+                            updateRowField(cafe.id, key, next);
+                          }
+                        }}
+                        onBlur={(e) => {
+                          const raw = e.target.value;
+                          const next = raw === "" ? null : parseFloat(raw);
+                          if (raw !== "" && Number.isNaN(next)) {
+                            const original = cafes.find((c) => c.id === cafe.id);
+                            updateRowField(cafe.id, key, original?.[key] ?? null);
+                            return;
+                          }
+                          commitInlineField(cafe, key, next);
+                        }}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter") {
+                            e.currentTarget.blur();
+                          }
+                        }}
+                      />
+                    </td>
+                  ))}
                 </tr>
               ))}
             </tbody>

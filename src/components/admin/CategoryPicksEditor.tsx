@@ -7,7 +7,7 @@ import { saveCategoryPicks, type CategoryPickInput } from "@/app/admin/actions";
 import { cn } from "@/lib/utils";
 
 const CATEGORY_KEYS = Object.keys(CATEGORY_LABELS) as CategoryKey[];
-const RANKS = [1, 2, 3] as const;
+const RANKS = [1, 2, 3, 4, 5] as const;
 
 function buildInitialPicks(picks: CategoryPick[]): CategoryPickInput[] {
   const map = new Map<string, CategoryPickInput>();
@@ -105,7 +105,7 @@ export function CategoryPicksEditor({
   return (
     <div className="space-y-6">
       <p className="text-sm text-espresso/60">
-        Set the top 3 cafés for each leaderboard category. Leave a slot empty to omit it.
+        Set the top 5 cafés for each leaderboard category. Leave a slot empty to omit it.
       </p>
 
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">

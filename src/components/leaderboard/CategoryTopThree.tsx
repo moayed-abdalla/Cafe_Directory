@@ -45,7 +45,7 @@ export function CategoryTopThree({ picks, cafes, category }: CategoryTopThreePro
         transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
       >
         <h3 className="mb-6 font-display text-2xl text-espresso md:text-3xl">
-          Top 3 — {CATEGORY_LABELS[category]}
+          Top 5 — {CATEGORY_LABELS[category]}
         </h3>
 
         <motion.div
@@ -53,7 +53,7 @@ export function CategoryTopThree({ picks, cafes, category }: CategoryTopThreePro
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-5%" }}
-          className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-3"
+          className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-5"
         >
           {categoryPicks.map((pick, i) => {
             const cafe = findCafeByName(cafes, pick.cafe_name);

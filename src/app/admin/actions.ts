@@ -249,8 +249,8 @@ export async function saveCategoryPicks(picks: CategoryPickInput[]) {
     if (!CATEGORY_KEYS.includes(pick.category)) {
       return { error: `Invalid category: ${pick.category}` };
     }
-    if (pick.rank < 1 || pick.rank > 3) {
-      return { error: "Rank must be between 1 and 3" };
+    if (pick.rank < 1 || pick.rank > 5) {
+      return { error: "Rank must be between 1 and 5" };
     }
     if (!pick.cafe_name.trim()) {
       return { error: "Cafe name is required for all picks" };

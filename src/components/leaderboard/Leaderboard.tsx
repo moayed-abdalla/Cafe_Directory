@@ -40,7 +40,7 @@ export function Leaderboard({ cafes, categoryPicks }: LeaderboardProps) {
           </h2>
           <p className="mt-3 max-w-xl text-espresso/60 md:text-lg">
             Ranked by your visits and scores. Switch categories to see your
-            hand-picked top three.
+            hand-picked top five.
           </p>
         </motion.div>
 
