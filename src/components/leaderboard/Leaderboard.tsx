@@ -7,7 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import type { Cafe, CategoryPick } from "@/lib/types/cafe";
 import { useSite } from "@/components/providers/SiteProvider";
 import { CategoryRail } from "./CategoryRail";
-import { CategoryTopThree } from "./CategoryTopThree";
+import { CategoryTopFive } from "./CategoryTopFive";
 import { OverallRanking } from "./OverallRanking";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -51,7 +51,7 @@ export function Leaderboard({ cafes, categoryPicks }: LeaderboardProps) {
             {leaderboardMode === "overall" ? (
               <OverallRanking cafes={cafes} />
             ) : (
-              <CategoryTopThree
+              <CategoryTopFive
                 picks={categoryPicks}
                 cafes={cafes}
                 category={leaderboardMode}

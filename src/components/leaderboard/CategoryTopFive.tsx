@@ -15,7 +15,7 @@ import { CountUp } from "@/components/ui/CountUp";
 import { useSite } from "@/components/providers/SiteProvider";
 import { cn } from "@/lib/utils";
 
-type CategoryTopThreeProps = {
+type CategoryTopFiveProps = {
   picks: CategoryPick[];
   cafes: Cafe[];
   category: CategoryPick["category"];
@@ -27,7 +27,7 @@ const rankIcons = [
   { icon: Medal, color: "text-sage" },
 ];
 
-export function CategoryTopThree({ picks, cafes, category }: CategoryTopThreeProps) {
+export function CategoryTopFive({ picks, cafes, category }: CategoryTopFiveProps) {
   const { focusCafe } = useSite();
   const categoryPicks = picks
     .filter((p) => p.category === category)
