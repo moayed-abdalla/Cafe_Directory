@@ -250,5 +250,61 @@
     "latitude": 21.6214737,
     "longitude": 39.1509482,
     "source": "cache"
+  },
+  {
+    "name": "Broots",
+    "city": "Jeddah",
+    "latitude": 21.551299999999998,
+    "longitude": 39.1728,
+    "source": "fresh"
+  },
+  {
+    "name": "Rusa Roastery",
+    "city": "Jeddah",
+    "latitude": 21.535927226631898,
+    "longitude": 39.17955590207616,
+    "source": "fresh"
+  },
+  {
+    "name": "Jamila",
+    "city": "Jeddah",
+    "latitude": 21.54434586891297,
+    "longitude": 39.1608456636229,
+    "source": "fresh"
+  },
+  {
+    "name": "Namq",
+    "city": "Jeddah",
+    "latitude": 21.55182266000612,
+    "longitude": 39.18390694676408,
+    "source": "fresh"
+  },
+  {
+    "name": "First Crack",
+    "city": "Jeddah",
+    "latitude": 21.527543075951804,
+    "longitude": 39.17002162915733,
+    "source": "fresh"
+  },
+  {
+    "name": "Hemi",
+    "city": "Jeddah",
+    "latitude": 21.6025039,
+    "longitude": 39.1423056,
+    "source": "fresh"
+  },
+  {
+    "name": "Blue Apron",
+    "city": "Jeddah",
+    "latitude": 21.540711809548974,
+    "longitude": 39.182459258262895,
+    "source": "fresh"
+  },
+  {
+    "name": "Sara",
+    "city": "Jeddah",
+    "latitude": 21.5985513,
+    "longitude": 39.1237252,
+    "source": "fresh"
   }
 ]
