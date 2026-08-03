@@ -14,11 +14,11 @@
     "price_max": 24,
     "price_to_quality": 7.5625,
     "notes": "Very solid, great staff and service. Possibly the best place to work if you don't mind it being a bit busy. Decent deserts too.",
-    "latitude": 21.551299999999998,
-    "longitude": 39.1728,
-    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=21.551299999999998,39.1728",
-    "address": null,
-    "geocode_verified": false
+    "latitude": 21.574335,
+    "longitude": 39.148174,
+    "google_maps_url": "https://www.google.com/maps/place/?q=place_id:ChIJXRMBaWzbwxURov6xHDKjTRg",
+    "address": "Abdul Maqsud Khojah, Ar Rawdah, Jeddah 23435, Saudi Arabia",
+    "geocode_verified": true
   },
   {
     "id": "115-neighborhood-caf",
@@ -56,11 +56,11 @@
     "price_max": 28,
     "price_to_quality": 6.8,
     "notes": "Pricey but also a really nice stay and extensive menu. good for brunch with the family",
-    "latitude": 21.6483406,
-    "longitude": 39.1121231,
-    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=21.6483406,39.1121231",
-    "address": null,
-    "geocode_verified": false
+    "latitude": 21.567112,
+    "longitude": 39.124728,
+    "google_maps_url": "https://www.google.com/maps/place/?q=place_id:ChIJhzZOvb7bwxURuVg7QPNgNOI",
+    "address": "8350 Mitab Ibn Awf, Ash Shati, Jeddah 8548, Jeddah 23414, Saudi Arabia",
+    "geocode_verified": true
   },
   {
     "id": "starbucks",
@@ -98,11 +98,11 @@
     "price_max": 22,
     "price_to_quality": 7.888888889,
     "notes": "Having now gone 6 times, this place has become where I source most of my coffee as it has the best selection of different coffees, great staff, a decent rotation of different coffees from time to time. decent merch too",
-    "latitude": 21.527543075951804,
-    "longitude": 39.17002162915733,
-    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=21.527543075951804,39.17002162915733",
-    "address": null,
-    "geocode_verified": false
+    "latitude": 21.645214,
+    "longitude": 39.117227,
+    "google_maps_url": "https://www.google.com/maps/place/?q=place_id:ChIJDV29zF7ZwxURO6BcWC1vQ7A",
+    "address": "ابراهيم الجنيني, Al Mohammadiyyah, Jeddah 23617, Saudi Arabia",
+    "geocode_verified": true
   },
   {
     "id": "hoot-coffee-house",
@@ -119,11 +119,11 @@
     "price_max": 28,
     "price_to_quality": 6.857142857,
     "notes": "Instagramable and good with friends, has a paino lol",
-    "latitude": 21.5500471315665,
-    "longitude": 39.16850160313323,
-    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=21.5500471315665,39.16850160313323",
-    "address": null,
-    "geocode_verified": false
+    "latitude": 21.591489,
+    "longitude": 39.131083,
+    "google_maps_url": "https://www.google.com/maps/place/?q=place_id:ChIJd4IvvHzbwxURNeNG-KncYW4",
+    "address": "6116 Unit No: 2, As Zahra Dist, ahmad al attas, Jeddah Saudi Arabia",
+    "geocode_verified": true
   },
   {
     "id": "tim-hortons",
@@ -182,11 +182,11 @@
     "price_max": 25,
     "price_to_quality": 7.4375,
     "notes": "A fairly decent coffee shop with the upper flour being great for work and lower for great for socialising. Decent coffee but generic and mediocre desserts.",
-    "latitude": 21.5732382,
-    "longitude": 39.1436292,
-    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=21.5732382,39.1436292",
-    "address": null,
-    "geocode_verified": false
+    "latitude": 21.559422,
+    "longitude": 39.135901,
+    "google_maps_url": "https://www.google.com/maps/place/?q=place_id:ChIJcThWUbbawxURIIyMFADcbn8",
+    "address": "Prince Saud Al Faisal, Al Khalidiyyah, Jeddah 23423, Saudi Arabia",
+    "geocode_verified": true
   },
   {
     "id": "basic",
@@ -203,11 +203,11 @@
     "price_max": 25,
     "price_to_quality": 7.071428571,
     "notes": "Far better than basic, a great place to work",
-    "latitude": 21.5781005,
-    "longitude": 39.1560339,
-    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=21.5781005,39.1560339",
-    "address": null,
-    "geocode_verified": false
+    "latitude": 21.535713,
+    "longitude": 39.171145,
+    "google_maps_url": "https://www.google.com/maps/place/?q=place_id:ChIJ0XxpHLfPwxURBz87Io0B_to",
+    "address": "Al Fadl, Al-Hamra'a, Jeddah 23324, Saudi Arabia",
+    "geocode_verified": true
   },
   {
     "id": "12-m",
@@ -287,11 +287,11 @@
     "price_max": 25,
     "price_to_quality": 7.071428571,
     "notes": "The best place to bring a large (3+) group though can be on less intamite side",
-    "latitude": 21.5682368,
-    "longitude": 39.160842,
-    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=21.5682368,39.160842",
-    "address": null,
-    "geocode_verified": false
+    "latitude": 21.568232,
+    "longitude": 39.160825,
+    "google_maps_url": "https://www.google.com/maps/place/?q=place_id:ChIJfVLc8cjRwxURUEhKkgts8wk",
+    "address": "Al Kayal, Ar Rawdah, Jeddah 23434, Saudi Arabia",
+    "geocode_verified": true
   },
   {
     "id": "aitch",
@@ -350,11 +350,11 @@
     "price_max": 25,
     "price_to_quality": 7.142857143,
     "notes": "Great services, though fairly small but trendy shop",
-    "latitude": 24.721260444431188,
-    "longitude": 46.681727876096865,
-    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=24.721260444431188,46.681727876096865",
-    "address": null,
-    "geocode_verified": false
+    "latitude": 24.706474,
+    "longitude": 46.707752,
+    "google_maps_url": "https://www.google.com/maps/place/?q=place_id:ChIJFYn4TmfjLj4RylxvSPaLtxs",
+    "address": "8563 Prince Abdulaziz Ibn Musaid Ibn Jalawi St, alsulimanya, 2874, Riyadh 12234, Saudi Arabia",
+    "geocode_verified": true
   },
   {
     "id": "95-celcius",
@@ -497,11 +497,11 @@
     "price_max": 24,
     "price_to_quality": 7.469879518,
     "notes": "Good service and nice music, fairly good coffee and desserts. Amazing place for small groups or dates",
-    "latitude": 21.546330154595132,
-    "longitude": 39.15913185590032,
-    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=21.546330154595132,39.15913185590032",
-    "address": null,
-    "geocode_verified": false
+    "latitude": 21.598503,
+    "longitude": 39.122287,
+    "google_maps_url": "https://www.google.com/maps/place/?q=place_id:ChIJ6RXuNErbwxUROF6pn3j1Wk0",
+    "address": "3691 King Abdul Aziz Rd, Al Zahra, 6905, Jeddah 23522, Saudi Arabia",
+    "geocode_verified": true
   },
   {
     "id": "j-blends",
@@ -686,11 +686,11 @@
     "price_max": 32,
     "price_to_quality": 6.823529412,
     "notes": "My favourite cafe from the UK and I trusted in it to take my mom and it absolutely did not disappoint. It has been A very long time since I have enjoyed a dessert as much as I did this. A little more of a restarant vibe  and more socially targeted seating.",
-    "latitude": 24.715683778132004,
-    "longitude": 46.68711769303615,
-    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=24.715683778132004,46.68711769303615",
-    "address": null,
-    "geocode_verified": false
+    "latitude": 24.738655,
+    "longitude": 46.645976,
+    "google_maps_url": "https://www.google.com/maps/place/?q=place_id:ChIJvSrR46HjLj4RKR9uNrn7vgE",
+    "address": "3213 As Safarjal, 7993, Riyadh 12364, Saudi Arabia",
+    "geocode_verified": true
   },
   {
     "id": "utopia",
@@ -728,11 +728,11 @@
     "price_max": 24,
     "price_to_quality": 7.325581395,
     "notes": "A finally genuinely great selection of different coffees in a city where every coffee shop only has is a medium roast, natural process. Coffee was good enough for me to bag a bag on the spot to take home",
-    "latitude": 21.4908562,
-    "longitude": 39.1255871,
-    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=21.4908562,39.1255871",
-    "address": null,
-    "geocode_verified": false
+    "latitude": 21.59701,
+    "longitude": 39.158463,
+    "google_maps_url": "https://www.google.com/maps/place/?q=place_id:ChIJM_4j-dXRwxURpV9BWRefDBg",
+    "address": "Dist - Store 7, 3577 Qouraish, As Salamah, Jeddah 23437, Saudi Arabia",
+    "geocode_verified": true
   },
   {
     "id": "m-bakery",
@@ -875,11 +875,11 @@
     "price_max": null,
     "price_to_quality": null,
     "notes": null,
-    "latitude": 21.6025039,
-    "longitude": 39.1423056,
-    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=21.6025039,39.1423056",
-    "address": null,
-    "geocode_verified": false
+    "latitude": 21.602609,
+    "longitude": 39.142414,
+    "google_maps_url": "https://www.google.com/maps/place/?q=place_id:ChIJVVVVVTjAvRURSsSZ1m8Ne1A",
+    "address": "7304 Prince Sultan Rd, Al Zahra, Mujamah Siba طريق الامير سلطان،, Jeddah 23522, Saudi Arabia",
+    "geocode_verified": true
   },
   {
     "id": "blue-apron",
