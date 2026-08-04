@@ -75,10 +75,18 @@ export function getScoreTier(score: number): "gold" | "warm" | "muted" {
 
 type Rgb = readonly [number, number, number];
 
+/**
+ * Color stops biased toward the dense 7–9 score band.
+ * Below 7 stays muted sage; 7–9 runs through distinct brand hues; 9–10 peaks bright gold.
+ */
 const PIN_STOPS: { at: number; rgb: Rgb }[] = [
   { at: 0, rgb: [138, 154, 123] }, // sage
-  { at: 5, rgb: [184, 115, 51] }, // copper
-  { at: 10, rgb: [201, 162, 39] }, // gold
+  { at: 7, rgb: [130, 142, 108] }, // deeper sage
+  { at: 7.5, rgb: [160, 125, 70] }, // olive bronze
+  { at: 8, rgb: [184, 115, 51] }, // copper
+  { at: 8.5, rgb: [212, 165, 116] }, // tan
+  { at: 9, rgb: [201, 162, 39] }, // gold
+  { at: 10, rgb: [230, 195, 60] }, // bright gold
 ];
 
 const ESPRESSO = "#2c1810";
