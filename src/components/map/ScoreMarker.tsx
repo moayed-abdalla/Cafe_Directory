@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import type { Cafe } from "@/lib/types/cafe";
-import { formatScore, getScoreTier } from "@/lib/types/cafe";
+import { formatScore, getScorePinColors } from "@/lib/types/cafe";
 import { pinSpring } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
@@ -13,14 +13,12 @@ type ScoreMarkerProps = {
   onClick: () => void;
 };
 
-const tierStyles = {
-  gold: "bg-gold text-espresso ring-gold/50",
-  warm: "bg-copper text-cream ring-copper/50",
-  muted: "bg-sage text-cream ring-sage/50",
-};
-
 export function ScoreMarker({ cafe, index, selected, onClick }: ScoreMarkerProps) {
-  const tier = getScoreTier(cafe.average);
+  const { backgroundColor, color, ringColor } = getScorePinColors(cafe.average);
+  const ringWidth = selected ? 4 : 2;
+  const boxShadow = selected
+    ? `0 0 0 ${ringWidth}px ${ringColor}, 0 10px 15px -3px rgb(0 0 0 / 0.2), 0 4px 6px -4px rgb(0 0 0 / 0.2)`
+    : `0 0 0 ${ringWidth}px ${ringColor}, 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)`;
 
   return (
     <motion.button
@@ -35,10 +33,10 @@ export function ScoreMarker({ cafe, index, selected, onClick }: ScoreMarkerProps
         onClick();
       }}
       className={cn(
-        "flex h-10 w-10 cursor-pointer items-center justify-center rounded-full text-xs font-bold shadow-lg ring-2 transition-shadow md:h-11 md:w-11 md:text-sm",
-        tierStyles[tier],
-        selected && "z-10 scale-125 ring-4 ring-offset-2 ring-offset-transparent animate-pulse"
+        "flex h-10 w-10 cursor-pointer items-center justify-center rounded-full text-xs font-bold transition-shadow md:h-11 md:w-11 md:text-sm",
+        selected && "z-10 scale-125 animate-pulse"
       )}
+      style={{ backgroundColor, color, boxShadow }}
       aria-label={`${cafe.name}: ${formatScore(cafe.average)}`}
     >
       {formatScore(cafe.average)}
