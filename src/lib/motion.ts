@@ -45,14 +45,16 @@ export const scaleIn = {
 };
 
 export const pinSpring = {
-  hidden: { opacity: 0, scale: 0, y: -30 },
+  hidden: { opacity: 0, scale: 0.4, y: -36 },
   visible: (i: number) => ({
     opacity: 1,
-    scale: 1,
-    y: 0,
+    scale: [0.4, 1.18, 0.92, 1],
+    y: [-36, 6, -3, 0],
     transition: {
-      ...springBounce,
-      delay: i * 0.05,
+      delay: i * 0.07,
+      duration: 0.45,
+      ease: cinematicEase,
+      opacity: { delay: i * 0.07, duration: 0.15 },
     },
   }),
 };

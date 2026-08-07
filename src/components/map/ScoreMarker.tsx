@@ -10,10 +10,17 @@ type ScoreMarkerProps = {
   cafe: Cafe;
   index: number;
   selected: boolean;
+  mapReady: boolean;
   onClick: () => void;
 };
 
-export function ScoreMarker({ cafe, index, selected, onClick }: ScoreMarkerProps) {
+export function ScoreMarker({
+  cafe,
+  index,
+  selected,
+  mapReady,
+  onClick,
+}: ScoreMarkerProps) {
   const { backgroundColor, color, ringColor } = getScorePinColors(cafe.average);
   const ringWidth = selected ? 4 : 2;
   const boxShadow = selected
@@ -25,7 +32,7 @@ export function ScoreMarker({ cafe, index, selected, onClick }: ScoreMarkerProps
       custom={index}
       variants={pinSpring}
       initial="hidden"
-      animate="visible"
+      animate={mapReady ? "visible" : "hidden"}
       whileHover={{ scale: 1.15 }}
       whileTap={{ scale: 0.95 }}
       onClick={(e) => {

@@ -27,9 +27,13 @@ export function CafeMap({ cafes }: CafeMapProps) {
   const mapRef = useRef<MapRef>(null);
   const { selectedCafe, setSelectedCafe } = useSite();
   const [popupCafe, setPopupCafe] = useState<Cafe | null>(null);
+  const [mapReady, setMapReady] = useState(false);
 
   const mappableCafes = useMemo(
-    () => cafes.filter((c) => c.latitude != null && c.longitude != null),
+    () =>
+      cafes
+        .filter((c) => c.latitude != null && c.longitude != null)
+        .sort((a, b) => b.average - a.average || a.name.localeCompare(b.name)),
     [cafes]
   );
 
@@ -90,6 +94,7 @@ export function CafeMap({ cafes }: CafeMapProps) {
           attributionControl={false}
           scrollZoom={false}
           doubleClickZoom={false}
+          onLoad={() => setMapReady(true)}
         >
           {mappableCafes.map((cafe, i) => (
             <Marker
@@ -102,6 +107,7 @@ export function CafeMap({ cafes }: CafeMapProps) {
                 cafe={cafe}
                 index={i}
                 selected={popupCafe?.id === cafe.id}
+                mapReady={mapReady}
                 onClick={() => handleMarkerClick(cafe)}
               />
             </Marker>
