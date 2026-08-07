@@ -33,7 +33,7 @@ export function CafeMap({ cafes }: CafeMapProps) {
     () =>
       cafes
         .filter((c) => c.latitude != null && c.longitude != null)
-        .sort((a, b) => b.average - a.average || a.name.localeCompare(b.name)),
+        .sort((a, b) => a.average - b.average || a.name.localeCompare(b.name)),
     [cafes]
   );
 
