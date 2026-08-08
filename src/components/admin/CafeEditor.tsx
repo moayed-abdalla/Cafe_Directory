@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
-import { Search, Plus, Trash2, X } from "lucide-react";
+import { Search, Plus, Trash2, X, MapPin } from "lucide-react";
 import type { Cafe } from "@/lib/types/cafe";
 import { slugify } from "@/lib/types/cafe";
 import {
@@ -12,6 +12,7 @@ import {
   type CafeFormInput,
 } from "@/app/admin/actions";
 import { cn } from "@/lib/utils";
+import { LocationPickerMap } from "@/components/admin/LocationPickerMap";
 
 const EMPTY_CAFE: CafeFormInput = {
   name: "",
@@ -117,6 +118,7 @@ export function CafeEditor({ cafes }: { cafes: Cafe[] }) {
   const [form, setForm] = useState<CafeFormInput>(EMPTY_CAFE);
   const [error, setError] = useState("");
   const [inlineError, setInlineError] = useState("");
+  const [mapPickerOpen, setMapPickerOpen] = useState(false);
   const [pending, startTransition] = useTransition();
 
   useEffect(() => {
@@ -506,29 +508,39 @@ export function CafeEditor({ cafes }: { cafes: Cafe[] }) {
               />
             </Field>
 
-            <div className="grid grid-cols-2 gap-3">
-              <Field label="Latitude">
-                <input
-                  type="number"
-                  step="any"
-                  className={inputClass}
-                  value={form.latitude ?? ""}
-                  onChange={(e) =>
-                    updateField("latitude", e.target.value ? parseFloat(e.target.value) : null)
-                  }
-                />
-              </Field>
-              <Field label="Longitude">
-                <input
-                  type="number"
-                  step="any"
-                  className={inputClass}
-                  value={form.longitude ?? ""}
-                  onChange={(e) =>
-                    updateField("longitude", e.target.value ? parseFloat(e.target.value) : null)
-                  }
-                />
-              </Field>
+            <div className="space-y-2">
+              <div className="grid grid-cols-2 gap-3">
+                <Field label="Latitude">
+                  <input
+                    type="number"
+                    step="any"
+                    className={inputClass}
+                    value={form.latitude ?? ""}
+                    onChange={(e) =>
+                      updateField("latitude", e.target.value ? parseFloat(e.target.value) : null)
+                    }
+                  />
+                </Field>
+                <Field label="Longitude">
+                  <input
+                    type="number"
+                    step="any"
+                    className={inputClass}
+                    value={form.longitude ?? ""}
+                    onChange={(e) =>
+                      updateField("longitude", e.target.value ? parseFloat(e.target.value) : null)
+                    }
+                  />
+                </Field>
+              </div>
+              <button
+                type="button"
+                onClick={() => setMapPickerOpen(true)}
+                className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-cream-dark bg-white px-3 py-2 text-sm text-espresso hover:border-copper hover:bg-cream"
+              >
+                <MapPin className="h-4 w-4 text-copper" />
+                Map select
+              </button>
             </div>
 
             <label className="flex items-center gap-2 text-sm">
@@ -569,6 +581,18 @@ export function CafeEditor({ cafes }: { cafes: Cafe[] }) {
             )}
           </div>
         </div>
+      )}
+
+      {mapPickerOpen && (
+        <LocationPickerMap
+          latitude={form.latitude}
+          longitude={form.longitude}
+          onClose={() => setMapPickerOpen(false)}
+          onConfirm={(lat, lng) => {
+            setForm((prev) => ({ ...prev, latitude: lat, longitude: lng }));
+            setMapPickerOpen(false);
+          }}
+        />
       )}
     </div>
   );

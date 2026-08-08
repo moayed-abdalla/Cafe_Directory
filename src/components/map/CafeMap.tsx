@@ -7,15 +7,13 @@ import { ChevronDown } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import type { Cafe } from "@/lib/types/cafe";
+import { JEDDAH, MAP_STYLE } from "@/lib/map/constants";
 import { useSite } from "@/components/providers/SiteProvider";
 import { ScoreMarker } from "./ScoreMarker";
 import { CafePopup } from "./CafePopup";
 import { MapZoomControls } from "./MapZoomControls";
 
 gsap.registerPlugin(ScrollTrigger);
-
-const JEDDAH = { latitude: 21.5433, longitude: 39.1728 };
-const MAP_STYLE = "/map/cafe-basemap.json";
 
 type CafeMapProps = {
   cafes: Cafe[];
